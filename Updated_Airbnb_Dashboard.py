@@ -187,4 +187,6 @@ def update_dashboard(room_type, price_range, distance_range, satisfaction_range,
     return total_listings, average_price, avg_satisfaction, avg_distance, room_type_pie, revenue_bar, heat_map, price_vs_distance, distance_vs_satisfaction
 # Run the App
 if __name__ == "__main__":
-    app.run_server(debug=True, port = 8051)
+    import os
+    port = int(os.getenv("PORT", 8050))
+    app.run_server(host="0.0.0.0", port=port)
